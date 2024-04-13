@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import React, { useState } from 'react'; // Import useState here
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
 import './App.css';
-import logo from './Flowerish.png';
+import logo from "./Flowerish.png";
+import LoginPage from './LoginPage';
+import RegistrationPage from './RegistrationPage';
 
 // WelcomePage component
 function WelcomePage() {
@@ -52,10 +54,10 @@ function GardenPage() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Next Page</h1>
-        <p>You are now on the next page of our website!</p>
-        <Link to="/garden" className="App-link">
-          Go To Your Garden
+        <h1>Garden Page</h1>
+        <p>You are now on the Garden page of our website!</p>
+        <Link to="/" className="App-link">
+          Go Back Home
         </Link>
       </header>
     </div>
@@ -68,6 +70,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegistrationPage />} />
         <Route path="/next" element={<NextPage />} />
         <Route path="/garden" element={<GardenPage />} />
       </Routes>
