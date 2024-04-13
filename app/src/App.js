@@ -8,18 +8,22 @@ import RegistrationPage from './RegistrationPage';
 // WelcomePage component
 function WelcomePage() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Flowerish</h1>
-        <p>
-          Go to the next page.
-        </p>
-        <Link to="/next" className="App-link">Enter</Link>
-      </header>
-    </div>
+      <div className="App">
+          <header className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h1>Flowerish</h1>
+              <p>
+                  Go to the next page or access your account.
+              </p>
+              <div>
+                  <Link to="/next" className="App-link">Enter</Link>
+                  <button style={{ top: '20%', left: '90%' }} className="account-info">Account</button>
+              </div>
+          </header>
+      </div>
   );
 }
+
 
 
 // NextPage component
