@@ -28,6 +28,16 @@
   color: #09064a;
 }
 
+.account-options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #66cc8a; /* Lighter green background for visibility */
+  padding: 10px;
+  border-radius: 5px;
+}
+
 .account-info {
   display: flex;
   align-items: center;
@@ -44,7 +54,6 @@
   transform: translate(-50%, -50%); /* Centers the button */
   cursor: pointer; /* Pointer cursor on hover */
 }
-
 
 @keyframes App-logo-spin {
   from {

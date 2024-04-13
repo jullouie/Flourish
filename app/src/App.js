@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Import useState here
+import { default as React, useState } from 'react'; // Import useState here
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
 import './App.css';
 import logo from "./Flowerish.png";
@@ -7,6 +7,12 @@ import RegistrationPage from './RegistrationPage';
 
 // WelcomePage component
 function WelcomePage() {
+  const [showAccountOptions, setShowAccountOptions] = useState(false);
+
+  const toggleAccountOptions = () => {
+      setShowAccountOptions(!showAccountOptions);
+  };
+
   return (
       <div className="App">
           <header className="App-header">
@@ -17,7 +23,13 @@ function WelcomePage() {
               </p>
               <div>
                   <Link to="/next" className="App-link">Enter</Link>
-                  <button style={{ top: '20%', left: '90%' }} className="account-info">Account</button>
+                  <button onClick={toggleAccountOptions} style={{ top: '20%', left: '90%' }} className="account-info">Account</button>
+                  {showAccountOptions && (
+                      <div className="account-options" style={{ top: '30%', left: '90%' }}>
+                          <Link to="/login" className="App-link">Login</Link>
+                          <Link to="/register" className="App-link">Register</Link>
+                      </div>
+                  )}
               </div>
           </header>
       </div>
