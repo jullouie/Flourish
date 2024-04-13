@@ -21,17 +21,30 @@ function WelcomePage() {
 
 // NextPage component
 function NextPage() {
+  const [points, setPoints] = useState(0);
+
+  const increasePoints = (amount) => {
+    setPoints(points + amount);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Next Page</h1>
-        <p>
-          You are now on the next page of our website!
-        </p>
-        <Link to="/garden" className="App-link">Go To Your Garden</Link>
+        <p>You are now on the next page of our website!</p>
+        <div>
+          <button onClick={() => increasePoints(5)}>Drink 8 oz of water</button>
+          <button onClick={() => increasePoints(10)}>Check in on your friends. How much have they drank?</button>
+          <button onClick={() => increasePoints(15)}>Have a snack</button>
+        </div>
+        <div>Points: {points}</div>
+        <Link to="/garden" className="App-link">
+          Go To Your Garden
+        </Link>
       </header>
     </div>
   );
+
 }
 
 // GardenPage component
