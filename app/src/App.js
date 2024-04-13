@@ -9,7 +9,7 @@ function WelcomePage() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <h1>Welcome to Our Website</h1>
+        <h1>Flowerish</h1>
         <p>
           Click the button below to go to the next page.
         </p>
