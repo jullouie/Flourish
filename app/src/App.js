@@ -1,24 +1,48 @@
+import React from 'react';
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
-import logo from './logo.svg';
+import logo from './Flowerish.png';
 
-function App() {
+// WelcomePage component
+function WelcomePage() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <h1>Welcome to Our Website</h1>
         <p>
-          Kellie Sucks. <code>src/App.js</code> and save to reload.
+          Click the button below to go to the next page.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Link to="/next" className="App-link">Enter</Link>
       </header>
     </div>
+  );
+}
+
+// NextPage component
+function NextPage() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Next Page</h1>
+        <p>
+          You are now on the next page of our website!
+        </p>
+        <Link to="/" className="App-link">Go Back</Link>
+      </header>
+    </div>
+  );
+}
+
+// App component with routing
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/next" element={<NextPage />} />
+      </Routes>
+    </Router>
   );
 }
 
