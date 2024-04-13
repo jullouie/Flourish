@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'; 
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import logo from './Flowerish.png';
@@ -52,11 +52,17 @@ function GardenPage() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Garden Page</h1>
-        <p>
-          Task 1:
-        </p>
-        <Link to="/" className="App-link">Go To Home</Link>
+        <h1>Next Page</h1>
+        <p>You are now on the next page of our website!</p>
+        <div>
+          <button onClick={() => increasePoints(5)}>Drink 8 oz of water</button>
+          <button onClick={() => increasePoints(10)}>Check in on your friends. How much have they drank?</button>
+          <button onClick={() => increasePoints(15)}>Have a snack</button>
+        </div>
+        <div>Points: {points}</div>
+        <Link to="/garden" className="App-link">
+          Go To Your Garden
+        </Link>
       </header>
     </div>
   );
