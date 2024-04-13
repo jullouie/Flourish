@@ -30,12 +30,12 @@ function NextPage() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Next Page</h1>
-        <p>You are now on the next page of our website!</p>
+        <h1>Here are your tasks for the day: </h1>
+        <p></p>
         <div>
           <button onClick={() => increasePoints(5)}>Drink 8 oz of water</button>
           <button onClick={() => increasePoints(10)}>Check in on your friends. How much have they drank?</button>
-          <button onClick={() => increasePoints(15)}>Have a snack</button>
+          <button onClick={() => increasePoints(15)}>Have a snack!</button>
         </div>
         <div>Points: {points}</div>
         <Link to="/garden" className="App-link">
