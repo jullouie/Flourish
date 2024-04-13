@@ -19,14 +19,9 @@ function WelcomePage() {
   );
 }
 
+
 // NextPage component
-function NextPage() {
-  const [points, setPoints] = useState(0);
-
-  const increasePoints = (amount) => {
-    setPoints(points + amount);
-  };
-
+function NextPage({increasePoints, points}) {
   return (
     <div className="App">
       <header className="App-header">
@@ -64,11 +59,17 @@ function GardenPage() {
 
 // App component with routing
 function App() {
+  const [points, setPoints] = useState(0);
+
+  const increasePoints = (amount) => {
+    setPoints(points + amount);
+  };
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/next" element={<NextPage />} />
+        <Route path="/next" element={<NextPage increasePoints={increasePoints} points={points} />} />
         <Route path="/garden" element={<GardenPage />} />
       </Routes>
     </Router>
