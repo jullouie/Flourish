@@ -71,6 +71,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
+        <Route path="/next" element={<NextPage increasePoints={increasePoints} points={points} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/next" element={<NextPage />} />
