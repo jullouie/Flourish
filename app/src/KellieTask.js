@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'; 
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import logo from './Flowerish.png';
@@ -11,7 +11,7 @@ function WelcomePage() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Flowerish</h1>
         <p>
-          Go to the next page.
+          Click the button below to go to the next page.
         </p>
         <Link to="/next" className="App-link">Enter</Link>
       </header>
@@ -44,22 +44,6 @@ function NextPage() {
       </header>
     </div>
   );
-
-}
-
-// GardenPage component
-function GardenPage() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Garden Page</h1>
-        <p>
-          Task 1:
-        </p>
-        <Link to="/" className="App-link">Go To Home</Link>
-      </header>
-    </div>
-  );
 }
 
 // App component with routing
@@ -69,7 +53,6 @@ function App() {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/next" element={<NextPage />} />
-        <Route path="/garden" element={<GardenPage />} />
       </Routes>
     </Router>
   );
