@@ -84,12 +84,12 @@ function App() {
   const [showPlant, setShowPlant] = useState(false);
 
   const increasePoints = (amount) => {
-    setPoints(points + amount);
+    const newPoints = points + amount;
+    setPoints(newPoints);
 
-    if (points + amount >= 50) {
+    if (newPoints >= 50) {
       setShowPlant(true);
-      // Reset points to zero after adding the plant
-      setPoints(0);
+      setPoints(newPoints - 50); // subtract 50 points
     }
   }
 
