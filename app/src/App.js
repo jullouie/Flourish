@@ -2,6 +2,7 @@ import { default as React, useState } from 'react'; // Import useState here
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
 import './App.css';
 import logo from "./Flowerish.png";
+import plant1 from "./flowers.png";
 import LoginPage from './LoginPage';
 import RegistrationPage from './RegistrationPage';
 
@@ -61,11 +62,13 @@ function NextPage({increasePoints, points}) {
 }
 
 // GardenPage component
-function GardenPage() {
+function GardenPage({ showPlant }) {
   return (
     <div className="App">
       <header className="App-header">
         <h1>Garden Page</h1>
+        {showPlant && <img src={plant1} alt="Plant" />}
+
         <p>You are now on the Garden page of our website!</p>
         <Link to="/" className="App-link">
           Go Back Home
@@ -78,10 +81,17 @@ function GardenPage() {
 // App component with routing
 function App() {
   const [points, setPoints] = useState(0);
+  const [showPlant, setShowPlant] = useState(false);
 
   const increasePoints = (amount) => {
     setPoints(points + amount);
-  };
+
+    if (points + amount >= 50) {
+      setShowPlant(true);
+      // Reset points to zero after adding the plant
+      setPoints(0);
+    }
+  }
 
   return (
     <Router>
@@ -91,7 +101,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/next" element={<NextPage />} />
-        <Route path="/garden" element={<GardenPage />} />
+        <Route path="/garden" element={<GardenPage showPlant={showPlant} />} />
       </Routes>
     </Router>
   );
