@@ -32,12 +32,12 @@ function NextPage() {
       <header className="App-header">
         <h1>Here are your tasks for the day: </h1>
         <p></p>
-        <div className="container">
-          <button onClick={() => increasePoints(5)} className="task-buttons">Drink 8 oz of water</button>
-          <button onClick={() => increasePoints(10)} className="task-buttons">Check in on your friends. How much have they drank?</button>
-          <button onClick={() => increasePoints(15)} className="task-buttons">Have a snack!</button>
+        <div>
+          <button onClick={() => increasePoints(5)}>Drink 8 oz of water</button>
+          <button onClick={() => increasePoints(10)}>Check in on your friends. How much have they drank?</button>
+          <button onClick={() => increasePoints(15)}>Have a snack!</button>
         </div>
-        <div className="points">Points: {points}</div>
+        <div>Points: {points}</div>
         <Link to="/garden" className="App-link">
           Go To Your Garden
         </Link>
@@ -52,9 +52,9 @@ function GardenPage() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Next Page</h1>
+        <h1>Garden Page</h1>
         <p>You are now on the next page of our website!</p>
-        <Link to="/garden" className="App-link">
+        <Link to="/" className="App-link">
           Go To Your Garden
         </Link>
       </header>
