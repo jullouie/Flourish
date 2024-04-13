@@ -11,7 +11,7 @@ function WelcomePage() {
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Flowerish</h1>
         <p>
-          Click the button below to go to the next page.
+          Go to the next page.
         </p>
         <Link to="/next" className="App-link">Enter</Link>
       </header>
@@ -28,7 +28,22 @@ function NextPage() {
         <p>
           You are now on the next page of our website!
         </p>
-        <Link to="/" className="App-link">Go Back</Link>
+        <Link to="/garden" className="App-link">Go To Your Garden</Link>
+      </header>
+    </div>
+  );
+}
+
+// GardenPage component
+function GardenPage() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Garden Page</h1>
+        <p>
+          You are now on the next page of our website!
+        </p>
+        <Link to="/" className="App-link">Go To Home</Link>
       </header>
     </div>
   );
@@ -41,6 +56,7 @@ function App() {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/next" element={<NextPage />} />
+        <Route path="/garden" element={<GardenPage />} />
       </Routes>
     </Router>
   );
