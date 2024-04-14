@@ -14,6 +14,9 @@ import logo from "./pics/Flowerish.png";
 //import plant1 from "./pics/flowers.png";
 
 import plant1 from "./pics/plant1.png";
+import plant10 from "./pics/plant10.png";
+import plant11 from "./pics/plant11.png";
+import plant12 from "./pics/plant12.png";
 import plant2 from "./pics/plant2.png";
 import plant3 from "./pics/plant3.png";
 import plant4 from "./pics/plant4.png";
@@ -22,9 +25,6 @@ import plant6 from "./pics/plant6.png";
 import plant7 from "./pics/plant7.png";
 import plant8 from "./pics/plant8.png";
 import plant9 from "./pics/plant9.png";
-import plant10 from "./pics/plant10.png";
-import plant11 from "./pics/plant11.png";
-import plant12 from "./pics/plant12.png";
 
 // WelcomePage component 1
 function WelcomePage() {
@@ -224,7 +224,6 @@ function App() {
         <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/nightOut" element={<TasksPageNightOut />} />
         <Route path="/shop" element={<ShopPage points={points} spendPoints={spendPoints} />} />
         <Route path="/garden" element={<GardenPage plantImages={plantImages} showPlantsCount={showPlantsCount} showPlants={showPlants} />} />
         <Route path="/groups" element={<GroupsPage />} />
