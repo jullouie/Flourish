@@ -23,7 +23,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .App-link {
@@ -77,9 +77,10 @@
 }
 
 .points {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  /* position: absolute; */
+  /* top: 490px;
+  right: 200px; */
+  margin-top: 10px;
   background-color: rgb(40, 175, 219);
   padding: 5px 10px;
   border-radius: 20px;
@@ -97,3 +98,5 @@
   margin-bottom: 50px;
   margin-top: 5px;
 }
+
+

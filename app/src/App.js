@@ -37,7 +37,7 @@ function WelcomePage() {
 
 
 // TasksPage component
-function TasksPage({increasePoints, points}) {
+function TasksPage({increasePoints, points, animationPoints}) {
   return (
     <div className="App">
       <header className="App-header">
@@ -49,6 +49,9 @@ function TasksPage({increasePoints, points}) {
           <button onClick={() => increasePoints(15)} className="button">Have a snack!</button>
         </div>
         <div className="points">Points: {points}</div>
+        {animationPoints > 0 && (
+                  <div className="points-animation">{animationPoints} points added!</div>
+                )}
         <div className="container">
           <Link to="/garden" className="App-link">
             Go To Your Garden
@@ -61,18 +64,23 @@ function TasksPage({increasePoints, points}) {
 }
 
 // TasksPage component
-function TasksPageAthletics({increasePoints, points}) {
+function TasksPageAthletics({increasePoints, points, animationPoints}) {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Here are your tasks for your NIGHT OUT: </h1>
+        <h1>Here are your tasks for your Athletics: </h1>
         <p></p>
         <div className="container">
-          <button onClick={() => increasePoints(5)} className="button">Drink 8 oz of water</button>
-          <button onClick={() => increasePoints(10)} className="button">Check in on your friends. How much have they drank?</button>
-          <button onClick={() => increasePoints(15)} className="button">Have a snack!</button>
+          <button onClick={() => increasePoints(5)} className="button">Get out of the sun</button>
+          <button onClick={() => increasePoints(10)} className="button">Drink 32 oz of water</button>
+          <button onClick={() => increasePoints(10)} className="button">Eat protein</button>
+          <button onClick={() => increasePoints(10)} className="button">Stretch</button>
+          <button onClick={() => increasePoints(15)} className="button">Recovery Yoga</button>
         </div>
         <div className="points">Points: {points}</div>
+        {animationPoints > 0 && (
+                  <div className="points-animation">{animationPoints} points added!</div>
+                )}
         <div className="container">
           <Link to="/garden" className="App-link">
             Go To Your Garden
@@ -85,18 +93,23 @@ function TasksPageAthletics({increasePoints, points}) {
 }
 
 // TasksPage component
-function TasksPageAcademics({increasePoints, points}) {
+function TasksPageAcademics({increasePoints, points, animationPoints}) {
   return (
     <div className="App">
       <header className="App-header">
         <h1>Here are your tasks for your NIGHT OUT: </h1>
-        <p></p>
+
+
         <div className="container">
-          <button onClick={() => increasePoints(5)} className="button">Drink 8 oz of water</button>
-          <button onClick={() => increasePoints(10)} className="button">Check in on your friends. How much have they drank?</button>
-          <button onClick={() => increasePoints(15)} className="button">Have a snack!</button>
+          <button onClick={() => increasePoints(5)} className="button">Go to class</button>
+          <button onClick={() => increasePoints(15)} className="button">Do homework</button>
+          <button onClick={() => increasePoints(15)} className="button">Go to mentor session</button>
+          <button onClick={() => increasePoints(20)} className="button">Study for exam</button>
         </div>
         <div className="points">Points: {points}</div>
+        {animationPoints > 0 && (
+                  <div className="points-animation">{animationPoints} points added!</div>
+                )}
         <div className="container">
           <Link to="/garden" className="App-link">
             Go To Your Garden
@@ -129,10 +142,14 @@ function GardenPage({ showPlant }) {
 function App() {
   const [points, setPoints] = useState(0);
   const [showPlant, setShowPlant] = useState(false);
+  const [animationPoints, setAnimationPoints] = useState(0);
 
   const increasePoints = (amount) => {
     const newPoints = points + amount;
     setPoints(newPoints);
+
+    setAnimationPoints(amount);
+    setTimeout(() => setAnimationPoints(0), 1000); // Remove animation after 1 second
 
     if (newPoints >= 50) {
       setShowPlant(true);
@@ -145,9 +162,9 @@ function App() {
       <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} />} />
-        <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} />} />
-        <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} />} />
+        <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
+        <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
+        <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/tasks" element={<TasksPage />} />

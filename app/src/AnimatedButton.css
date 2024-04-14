@@ -1,7 +1,7 @@
 /* Button.css */
 .button2 {
     display: inline-block; /* Change display to block to ensure each button is on a new line */
-    margin: 10px 0; /* Add margin space above and below each button */
+    margin: 0 10px; /* Add margin space above and below each button */
     padding: 15px 25px;
     font-size: 24px;
     cursor: pointer;
