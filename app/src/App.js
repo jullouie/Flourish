@@ -1,36 +1,26 @@
 import { default as React, useState } from 'react'; // Import useState here
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
 import './App.css';
+import './Button.css';
+import LoginPage from './LoginPage';
+import NavBar from './NavBar';
+import RegistrationPage from './RegistrationPage';
 import logo from "./pics/Flowerish.png";
 import plant1 from "./pics/flowers.png";
-import LoginPage from './LoginPage';
-import RegistrationPage from './RegistrationPage';
 
-// WelcomePage component
+// WelcomePage component 1
 function WelcomePage() {
-  const [showAccountOptions, setShowAccountOptions] = useState(false);
-
-  const toggleAccountOptions = () => {
-      setShowAccountOptions(!showAccountOptions);
-  };
 
   return (
       <div className="App">
           <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
-              <h1>Flowerish</h1>
+              <h1>Flourish</h1>
               <p>
-                  Go to the next page or access your account.
+                  Go to the tasks page or access your account.
               </p>
               <div>
-                  <Link to="/next" className="App-link">Enter</Link>
-                  <button onClick={toggleAccountOptions} style={{ top: '20%', left: '90%' }} className="account-info">Account</button>
-                  {showAccountOptions && (
-                      <div className="account-options" style={{ top: '30%', left: '90%' }}>
-                          <Link to="/login" className="App-link">Login</Link>
-                          <Link to="/register" className="App-link">Register</Link>
-                      </div>
-                  )}
+                  <Link to="/tasks" className="App-link">Enter</Link>
               </div>
           </header>
       </div>
@@ -39,23 +29,24 @@ function WelcomePage() {
 
 
 
-// NextPage component
-function NextPage({increasePoints, points}) {
+// TasksPage component
+function TasksPage({increasePoints, points}) {
   return (
     <div className="App">
       <header className="App-header">
         <h1>Here are your tasks for the day: </h1>
         <p></p>
         <div className="container">
-          <button onClick={() => increasePoints(5)} className="task-buttons">Drink 8 oz of water</button>
-          <button onClick={() => increasePoints(10)} className="task-buttons">Check in on your friends. How much have they drank?</button>
-          <button onClick={() => increasePoints(15)} className="task-buttons">Have a snack!</button>
+          <button onClick={() => increasePoints(5)} className="button">Drink 8 oz of water</button>
+          <button onClick={() => increasePoints(10)} className="button">Check in on your friends. How much have they drank?</button>
+          <button onClick={() => increasePoints(15)} className="button">Have a snack!</button>
         </div>
-
         <div className="points">Points: {points}</div>
-        <Link to="/garden" className="App-link">
-          Go To Your Garden
-        </Link>
+        <div className="container">
+          <Link to="/garden" className="App-link">
+            Go To Your Garden
+          </Link>
+        </div>
       </header>
     </div>
   );
@@ -96,12 +87,13 @@ function App() {
 
   return (
     <Router>
+      <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/next" element={<NextPage increasePoints={increasePoints} points={points} />} />
+        <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/next" element={<NextPage />} />
+        <Route path="/tasks" element={<TasksPage />} />
         <Route path="/garden" element={<GardenPage showPlant={showPlant} />} />
       </Routes>
     </Router>

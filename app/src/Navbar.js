@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './Flowerish.png'; // Assuming the logo is in the src folder
+import logo from './pics/Flowerish.png'; // Assuming the logo is in the src folder
 
-function Navbar() {
+function NavBar() {
     return (
         <nav className="navbar">
             <Link to="/">
@@ -18,4 +18,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default NavBar;
