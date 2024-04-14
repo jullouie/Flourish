@@ -7,7 +7,6 @@ import NavBar from './NavBar';
 import RegistrationPage from './RegistrationPage';
 import logo from "./pics/Flowerish.png";
 import plant1 from "./pics/flowers.png";
-import plant1 from "./flowers.png";
 import './AnimatedButton.css';
 
 // WelcomePage component 1
