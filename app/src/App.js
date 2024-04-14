@@ -42,11 +42,7 @@ function WelcomePage() {
 
 
 // TasksPage component
-<<<<<<< HEAD
-function TasksPage({increasePoints, points, animationPoints, unlockMessage}) {
-=======
-function TasksPageNightOut({increasePoints, points, animationPoints}) {
->>>>>>> af9066ebaf39623ba353cb74cca1558e3f034a97
+function TasksPageNightOut({increasePoints, points, animationPoints, unlockMessage}) {
   return (
     <div className="App">
       <header className="App-header">
@@ -191,13 +187,8 @@ function App() {
       <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-<<<<<<< HEAD
-        <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
+        <Route path="/tasks" element={<TasksPageNightOut increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
-=======
-        <Route path="/nightOut" element={<TasksPageNightOut increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
-        <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
->>>>>>> af9066ebaf39623ba353cb74cca1558e3f034a97
         <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
