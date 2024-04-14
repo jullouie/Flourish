@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Register.css';
 
 function RegistrationPage() {
     const [username, setUsername] = useState('');
@@ -16,8 +17,8 @@ function RegistrationPage() {
     };
 
     return (
-        <div className="App">
-            <header className="App-header">
+        <div className="RegistrationPage">
+            <header className="RegistrationPage-header">
                 <h1>Register</h1>
                 <form onSubmit={handleRegister}>
                     <input

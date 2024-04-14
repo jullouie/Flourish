@@ -1,13 +1,18 @@
 import { default as React, useState } from 'react'; // Import useState here
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
+import './AnimatedButton.css';
 import './App.css';
 import './Button.css';
+import GroupsPage from './Groups';
 import LoginPage from './LoginPage';
 import NavBar from './NavBar';
 import RegistrationPage from './RegistrationPage';
+import ShopPage from './ShopPage'; // Make sure to import the ShopPage component
 import logo from "./pics/Flowerish.png";
-import plant1 from "./pics/flowers.png";
-import './AnimatedButton.css';
+
+import plantImages from './imagePaths';
+//import plant1 from "./pics/flowers.png";
+
 
 // WelcomePage component 1
 function WelcomePage() {
@@ -22,7 +27,7 @@ function WelcomePage() {
               </p>
               <div>
                 {/* Link each button to a different page */}
-                <Link to="/tasks" className="button2">Night Out</Link>
+                <Link to="/nightOut" className="button2">Night Out</Link>
                 <Link to="/athletics" className="button2">Athletics</Link>
                 <Link to="/academics" className="button2">Academics</Link>
               </div>
@@ -37,7 +42,11 @@ function WelcomePage() {
 
 
 // TasksPage component
+<<<<<<< HEAD
 function TasksPage({increasePoints, points, animationPoints, unlockMessage}) {
+=======
+function TasksPageNightOut({increasePoints, points, animationPoints}) {
+>>>>>>> af9066ebaf39623ba353cb74cca1558e3f034a97
   return (
     <div className="App">
       <header className="App-header">
@@ -54,8 +63,8 @@ function TasksPage({increasePoints, points, animationPoints, unlockMessage}) {
         )}
         {unlockMessage !== "" && <div>{unlockMessage}</div>}
         <div className="container">
-          <Link to="/garden" className="App-link">
-            Go To Your Garden
+        <Link to="/shop" className="App-link">
+            Go To the Shop
           </Link>
         </div>
       </header>
@@ -83,8 +92,8 @@ function TasksPageAthletics({increasePoints, points, animationPoints, unlockMess
         )}
         {unlockMessage !== "" && <div>{unlockMessage}</div>}
         <div className="container">
-          <Link to="/garden" className="App-link">
-            Go To Your Garden
+          <Link to="/shop" className="App-link">
+            Go To the Shop
           </Link>
         </div>
       </header>
@@ -113,9 +122,10 @@ function TasksPageAcademics({increasePoints, points, animationPoints, unlockMess
                 )}
         {unlockMessage !== "" && <div>{unlockMessage}</div>}
         <div className="container">
-          <Link to="/garden" className="App-link">
-            Go To Your Garden
-          </Link>
+        <Link to="/shop" className="App-link">
+        Go to Shop
+        </Link>
+
         </div>
       </header>
     </div>
@@ -124,12 +134,15 @@ function TasksPageAcademics({increasePoints, points, animationPoints, unlockMess
 }
 
 // GardenPage component
-function GardenPage({ showPlant }) {
+function GardenPage({ showPlantsCount, showPlants }) {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Garden Page</h1>
-        {showPlant && <img src={plant1} alt="Plant" />}
+        <h1>Here is your garden:</h1>
+        {/* {showPlants.map((showPlant, i) => (showPlant && <img key={i} src={plantImages[i]} alt={`Plant ${i + 1}`} />))} */}
+        {showPlants.map((showPlant, i) => (
+          showPlant && <img key={i} src={plantImages[i]} alt={`Plant ${i + 1}`} />
+        ))}
 
         <p>You are now on the Garden page of our website!</p>
         <Link to="/" className="App-link">
@@ -143,37 +156,56 @@ function GardenPage({ showPlant }) {
 // App component with routing
 function App() {
   const [points, setPoints] = useState(0);
-  const [showPlant, setShowPlant] = useState(false);
+  //const [showPlant, setShowPlant] = useState(false);
   const [animationPoints, setAnimationPoints] = useState(0);
+  const [showPlantsCount, setShowPlantsCount] = useState(1);
   const [unlockMessage, setUnlockMessage] = useState("");
+
+  const [showPlants] = useState([]);
+  for (let i = 0; i < plantImages.length; i++) {
+    showPlants.push(false);
+  }
 
   const increasePoints = (amount) => {
     const newPoints = points + amount;
     setPoints(newPoints);
-    setUnlockMessage("");
     setAnimationPoints(amount);
     setTimeout(() => setAnimationPoints(0), 1000); // Remove animation after 1 second
+  };
 
-    if (newPoints >= 50) {
-      setShowPlant(true);
-      setPoints(newPoints - 50); // subtract 50 points
-      setUnlockMessage("Congratulations! You unlocked a new plant!");
+
+  const spendPoints = (amount) => {
+    if (points >= amount) {
+      setPoints(points - amount);
+      setShowPlantsCount(showPlantsCount + 1);
+      console.log("showPlantsCount: ", showPlantsCount);
+      if (amount === 50) {
+        showPlants[showPlantsCount - 1] = true;
+        console.log("showPlants: ", showPlants);
+      }
     }
-
-  }
+  };
 
   return (
     <Router>
       <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
+<<<<<<< HEAD
         <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
+=======
+        <Route path="/nightOut" element={<TasksPageNightOut increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
+        <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
+>>>>>>> af9066ebaf39623ba353cb74cca1558e3f034a97
         <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/tasks" element={<TasksPage />} />
-        <Route path="/garden" element={<GardenPage showPlant={showPlant} />} />
+        <Route path="/nightOut" element={<TasksPageNightOut />} />
+        <Route path="/shop" element={<ShopPage points={points} spendPoints={spendPoints} />} />
+        <Route path="/garden" element={<GardenPage showPlantsCount={showPlantsCount} showPlants={showPlants} />} />
+        <Route path="/groups" element={<GroupsPage />} />
+
       </Routes>
 
     </Router>

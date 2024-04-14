@@ -39,26 +39,29 @@
 }
 
 .navbar-logo {
-  height: 80px;  /* Adjust size as necessary */
+  height: 40px;  /* Adjust size as necessary */
   margin-right: 20px; /* Adds some space between the logo and the navbar links */
+  margin-top: 10px; /* Adds some space between the logo and the navbar links */
 }
 
-.navbar-links {
-  display: flex;
-}
-
-.nav-link {
+.navbar-links a, .navbar-links button {
   padding: 10px 15px;
   text-decoration: none;
   color: #09064a;
   font-weight: bold;
+  font: arial;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block; /* To align with links if needed */
 }
 
-.nav-link:hover {
+.navbar-links a:hover, .navbar-links button:hover {
   background-color: #4CAF50;
   color: white;
   border-radius: 5px;
 }
+
 
 @keyframes App-logo-spin {
   from {
@@ -100,3 +103,50 @@
 }
 
 
+/* Styles for GroupsPage */
+.group-page {
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-list {
+  width: 30%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.group-list h2 {
+  margin-bottom: 20px;
+}
+
+.group-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.group-list li {
+  margin-bottom: 10px;
+}
+
+.group-leaderboard {
+  width: 60%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.group-leaderboard h2 {
+  margin-bottom: 20px;
+}
+
+.group-leaderboard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.group-leaderboard li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
