@@ -3,6 +3,7 @@ import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import logo from "./Flowerish.png";
 import LoginPage from './LoginPage';
+import Navbar from './Navbar';
 import RegistrationPage from './RegistrationPage';
 
 // WelcomePage component
@@ -85,6 +86,7 @@ function App() {
 
   return (
     <Router>
+      <div><Navbar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/next" element={<NextPage increasePoints={increasePoints} points={points} />} />

@@ -54,6 +54,36 @@
   transform: translate(-50%, -50%); /* Centers the button */
   cursor: pointer; /* Pointer cursor on hover */
 }
+  
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #99e0a4;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-logo {
+  height: 50px;  /* Adjust size as necessary */
+  margin-right: 20px; /* Adds some space between the logo and the navbar links */
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.nav-link {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #09064a;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
 
 @keyframes App-logo-spin {
   from {
