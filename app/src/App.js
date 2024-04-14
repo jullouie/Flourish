@@ -195,6 +195,8 @@ function App() {
     setPoints(newPoints);
     setAnimationPoints(amount);
     setTimeout(() => setAnimationPoints(0), 1000); // Remove animation after 1 second
+    if (newPoints >= 50)
+      setUnlockMessage("Congratulations, you have enough points to buy a plant!")
   };
 
   const spendPoints = (amount) => {
@@ -207,6 +209,9 @@ function App() {
         console.log("showPlants: ", showPlants);
       }
     }
+    if (points - amount < 50){
+      setUnlockMessage("")
+    }
   };
 
   return (
@@ -214,7 +219,7 @@ function App() {
       <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/tasks" element={<TasksPageNightOut increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
+        <Route path="/nightOut" element={<TasksPageNightOut increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/login" element={<LoginPage />} />
