@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './LoginPage.css';
 
 function LoginPage() {
     const [username, setUsername] = useState('');
@@ -15,9 +16,9 @@ function LoginPage() {
     };
 
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Login</h1>
+        <div className="LoginPage">
+            <header className="LoginPage-header">
+                <h1>Log In</h1>
                 <form onSubmit={handleLogin}>
                     <input
                         type="text"
@@ -31,7 +32,7 @@ function LoginPage() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button type="submit">Login</button>
+                    <button type="submit">Log In</button>
                 </form>
                 <Link to="/register" className="App-link">Create Account</Link>
             </header>
