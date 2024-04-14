@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import RegistrationPage from './RegistrationPage';
 import './Button.css';
 import plant1 from "./flowers.png";
+import './AnimatedButton.css';
 
 
 // WelcomePage component
@@ -23,11 +24,17 @@ function WelcomePage() {
               <img src={logo} className="App-logo" alt="logo" />
               <h1>Flourish</h1>
               <p>
-                  Go to the tasks page or access your account.
+                  What theme are you looking for?
               </p>
               <div>
-                  <Link to="/tasks" className="App-link">Enter</Link>
+                {/* Link each button to a different page */}
+                <Link to="/tasks" className="button2">Night Out</Link>
+                <Link to="/athletics" className="button2">Athletics</Link>
+                <Link to="/academics" className="button2">Academics</Link>
               </div>
+              {/* <div>
+                  <Link to="/tasks" className="App-link">Enter</Link>
+              </div> */}
           </header>
       </div>
   );
@@ -40,7 +47,55 @@ function TasksPage({increasePoints, points}) {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Here are your tasks for the day: </h1>
+        <h1>Here are your tasks for your NIGHT OUT: </h1>
+        <p></p>
+        <div className="container">
+          <button onClick={() => increasePoints(5)} className="button">Drink 8 oz of water</button>
+          <button onClick={() => increasePoints(10)} className="button">Check in on your friends. How much have they drank?</button>
+          <button onClick={() => increasePoints(15)} className="button">Have a snack!</button>
+        </div>
+        <div className="points">Points: {points}</div>
+        <div className="container">
+          <Link to="/garden" className="App-link">
+            Go To Your Garden
+          </Link>
+        </div>
+      </header>
+    </div>
+  );
+
+}
+
+// TasksPage component
+function TasksPageAthletics({increasePoints, points}) {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Here are your tasks for your NIGHT OUT: </h1>
+        <p></p>
+        <div className="container">
+          <button onClick={() => increasePoints(5)} className="button">Drink 8 oz of water</button>
+          <button onClick={() => increasePoints(10)} className="button">Check in on your friends. How much have they drank?</button>
+          <button onClick={() => increasePoints(15)} className="button">Have a snack!</button>
+        </div>
+        <div className="points">Points: {points}</div>
+        <div className="container">
+          <Link to="/garden" className="App-link">
+            Go To Your Garden
+          </Link>
+        </div>
+      </header>
+    </div>
+  );
+
+}
+
+// TasksPage component
+function TasksPageAcademics({increasePoints, points}) {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Here are your tasks for your NIGHT OUT: </h1>
         <p></p>
         <div className="container">
           <button onClick={() => increasePoints(5)} className="button">Drink 8 oz of water</button>
@@ -97,6 +152,8 @@ function App() {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} />} />
+        <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} />} />
+        <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/tasks" element={<TasksPage />} />
