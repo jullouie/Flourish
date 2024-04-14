@@ -9,7 +9,7 @@ function Navbar() {
                 <img src={logo} alt="Flowerish Logo" className="navbar-logo" />
             </Link>
             <div className="navbar-links">
-                <Link to="/next" className="nav-link">Next Page</Link>
+                <Link to="/tasks" className="nav-link">Tasks Page</Link>
                 <Link to="/garden" className="nav-link">Garden</Link>
                 <Link to="/login" className="nav-link">Login</Link>
                 <Link to="/register" className="nav-link">Register</Link>

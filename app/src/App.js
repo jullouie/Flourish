@@ -22,17 +22,10 @@ function WelcomePage() {
               <img src={logo} className="App-logo" alt="logo" />
               <h1>Flowerish</h1>
               <p>
-                  Go to the next page or access your account.
+                  Go to the tasks page or access your account.
               </p>
               <div>
-                  <Link to="/next" className="App-link">Enter</Link>
-                  <button onClick={toggleAccountOptions} style={{ top: '20%', left: '90%' }} className="account-info">Account</button>
-                  {showAccountOptions && (
-                      <div className="account-options" style={{ top: '30%', left: '90%' }}>
-                          <Link to="/login" className="App-link">Login</Link>
-                          <Link to="/register" className="App-link">Register</Link>
-                      </div>
-                  )}
+                  <Link to="/tasks" className="App-link">Enter</Link>
               </div>
           </header>
       </div>
@@ -41,8 +34,8 @@ function WelcomePage() {
 
 
 
-// NextPage component
-function NextPage({increasePoints, points}) {
+// TasksPage component
+function TasksPage({increasePoints, points}) {
   return (
     <div className="App">
       <header className="App-header">
@@ -100,10 +93,10 @@ function App() {
       <div><Navbar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/next" element={<NextPage increasePoints={increasePoints} points={points} />} />
+        <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/next" element={<NextPage />} />
+        <Route path="/tasks" element={<TasksPage />} />
         <Route path="/garden" element={<GardenPage showPlant={showPlant} />} />
       </Routes>
     </Router>
