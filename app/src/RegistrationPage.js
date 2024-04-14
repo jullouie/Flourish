@@ -13,7 +13,7 @@ function RegistrationPage() {
         // Here, you'd send a POST request to your backend
         console.log('Registering:', username, email, password);
         // Navigate to login or directly login the user
-        navigate('/');
+        navigate('/Flourish');
     };
 
     return (

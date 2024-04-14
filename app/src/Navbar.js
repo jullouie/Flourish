@@ -11,7 +11,7 @@ function NavBar() {
 
     return (
         <nav className="navbar">
-            <Link to="/">
+            <Link to="/Flourish">
                 <img src={logo} alt="Flowerish Logo" className="navbar-logo" />
             </Link>
             <div className="navbar-links">

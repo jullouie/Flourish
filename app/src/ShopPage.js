@@ -11,7 +11,7 @@ function ShopPage({ points, spendPoints }) {
         <button onClick={() => spendPoints(50)} disabled={points < 50}>
           Redeem 50 Points for a Plant
         </button>
-        <Link to="/" className="App-link">Go Back Home</Link>
+        <Link to="/Flourish" className="App-link">Go Back Home</Link>
       </header>
     </div>
   );

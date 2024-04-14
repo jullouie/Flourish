@@ -153,7 +153,7 @@ function GardenPage({ plantImages, showPlantsCount, showPlants }) {
         ))}
 
         <p>You are now on the Garden page of our website!</p>
-        <Link to="/" className="App-link">
+        <Link to="/Flourish" className="App-link">
           Go Back Home
         </Link>
       </header>
@@ -218,7 +218,7 @@ function App() {
     <Router>
       <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
-        <Route path="/" element={<WelcomePage />} />
+        <Route path="/Flourish" element={<WelcomePage />} />
         <Route path="/nightOut" element={<TasksPageNightOut increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
