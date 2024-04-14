@@ -10,9 +10,21 @@ import RegistrationPage from './RegistrationPage';
 import ShopPage from './ShopPage'; // Make sure to import the ShopPage component
 import logo from "./pics/Flowerish.png";
 
-import plantImages from './imagePaths';
+//import plantImages from './imagePaths';
 //import plant1 from "./pics/flowers.png";
 
+import plant1 from "./pics/plant1.png";
+import plant2 from "./pics/plant2.png";
+import plant3 from "./pics/plant3.png";
+import plant4 from "./pics/plant4.png";
+import plant5 from "./pics/plant5.png";
+import plant6 from "./pics/plant6.png";
+import plant7 from "./pics/plant7.png";
+import plant8 from "./pics/plant8.png";
+import plant9 from "./pics/plant9.png";
+import plant10 from "./pics/plant10.png";
+import plant11 from "./pics/plant11.png";
+import plant12 from "./pics/plant12.png";
 
 // WelcomePage component 1
 function WelcomePage() {
@@ -130,7 +142,7 @@ function TasksPageAcademics({increasePoints, points, animationPoints, unlockMess
 }
 
 // GardenPage component
-function GardenPage({ showPlantsCount, showPlants }) {
+function GardenPage({ plantImages, showPlantsCount, showPlants }) {
   return (
     <div className="App">
       <header className="App-header">
@@ -151,6 +163,22 @@ function GardenPage({ showPlantsCount, showPlants }) {
 
 // App component with routing
 function App() {
+  const plantImages = [
+    plant1,
+    plant2,
+    plant3,
+    plant4,
+    plant5,
+    plant6,
+    plant7,
+    plant8,
+    plant9,
+    plant10,
+    plant11,
+     plant12
+    // Add more image paths as needed
+  ];
+
   const [points, setPoints] = useState(0);
   //const [showPlant, setShowPlant] = useState(false);
   const [animationPoints, setAnimationPoints] = useState(0);
@@ -194,7 +222,7 @@ function App() {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/nightOut" element={<TasksPageNightOut />} />
         <Route path="/shop" element={<ShopPage points={points} spendPoints={spendPoints} />} />
-        <Route path="/garden" element={<GardenPage showPlantsCount={showPlantsCount} showPlants={showPlants} />} />
+        <Route path="/garden" element={<GardenPage plantImages={plantImages} showPlantsCount={showPlantsCount} showPlants={showPlants} />} />
         <Route path="/groups" element={<GroupsPage />} />
 
       </Routes>
