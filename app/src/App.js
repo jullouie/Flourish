@@ -1,24 +1,32 @@
-import React, { useState } from 'react'; // Import useState here
+import { default as React, useState } from 'react'; // Import useState here
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
 import './App.css';
 import logo from "./Flowerish.png";
 import LoginPage from './LoginPage';
+import Navbar from './Navbar';
 import RegistrationPage from './RegistrationPage';
 import './Button.css';
+import plant1 from "./flowers.png";
+
 
 // WelcomePage component
 function WelcomePage() {
+  const [showAccountOptions, setShowAccountOptions] = useState(false);
+
+  const toggleAccountOptions = () => {
+      setShowAccountOptions(!showAccountOptions);
+  };
+
   return (
       <div className="App">
           <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
-              <h1>Flowerish</h1>
+              <h1>Flourish</h1>
               <p>
-                  Go to the next page or access your account.
+                  Go to the tasks page or access your account.
               </p>
               <div>
-                  <Link to="/next" className="App-link">Enter</Link>
-                  <button style={{ top: '20%', left: '90%' }} className="account-info">Account</button>
+                  <Link to="/tasks" className="App-link">Enter</Link>
               </div>
           </header>
       </div>
@@ -27,8 +35,8 @@ function WelcomePage() {
 
 
 
-// NextPage component
-function NextPage({increasePoints, points}) {
+// TasksPage component
+function TasksPage({increasePoints, points}) {
   return (
     <div className="App">
       <header className="App-header">
@@ -52,11 +60,13 @@ function NextPage({increasePoints, points}) {
 }
 
 // GardenPage component
-function GardenPage() {
+function GardenPage({ showPlant }) {
   return (
     <div className="App">
       <header className="App-header">
         <h1>Garden Page</h1>
+        {showPlant && <img src={plant1} alt="Plant" />}
+
         <p>You are now on the Garden page of our website!</p>
         <Link to="/" className="App-link">
           Go Back Home
@@ -69,20 +79,28 @@ function GardenPage() {
 // App component with routing
 function App() {
   const [points, setPoints] = useState(0);
+  const [showPlant, setShowPlant] = useState(false);
 
   const increasePoints = (amount) => {
-    setPoints(points + amount);
-  };
+    const newPoints = points + amount;
+    setPoints(newPoints);
+
+    if (newPoints >= 50) {
+      setShowPlant(true);
+      setPoints(newPoints - 50); // subtract 50 points
+    }
+  }
 
   return (
     <Router>
+      <div><Navbar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/next" element={<NextPage increasePoints={increasePoints} points={points} />} />
+        <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/next" element={<NextPage />} />
-        <Route path="/garden" element={<GardenPage />} />
+        <Route path="/tasks" element={<TasksPage />} />
+        <Route path="/garden" element={<GardenPage showPlant={showPlant} />} />
       </Routes>
     </Router>
   );

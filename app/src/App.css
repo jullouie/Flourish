@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -29,23 +30,35 @@
   color: #09064a;
 }
 
-.account-info {
+.navbar {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100px;  /* Diameter of the circle */
-  height: 100px; /* Diameter of the circle */
-  border-radius: 50%; /* Makes the div circular */
-  background-color: #4CAF50; /* Green background */
-  color: white; /* White text */
-  font-size: 16px; /* Text size */
-  position: absolute; /* Allows positioning anywhere */
-  top: 50%; /* Default position: adjust these values in component style or inline style */
-  left: 50%; /* Default position: adjust these values in component style or inline style */
-  transform: translate(-50%, -50%); /* Centers the button */
-  cursor: pointer; /* Pointer cursor on hover */
+  background-color: #99e0a4;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.navbar-logo {
+  height: 80px;  /* Adjust size as necessary */
+  margin-right: 20px; /* Adds some space between the logo and the navbar links */
+}
+
+.navbar-links {
+  display: flex;
+}
+
+.nav-link {
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #09064a;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
 
 @keyframes App-logo-spin {
   from {
