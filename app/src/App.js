@@ -6,8 +6,7 @@ import logo from "./Flowerish.png";
 import LoginPage from './LoginPage';
 import Navbar from './Navbar';
 import RegistrationPage from './RegistrationPage';
-import plant1 from "./flowers.png";
-
+import './Button.css';
 
 // WelcomePage component 1
 function WelcomePage() {
