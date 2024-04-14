@@ -20,7 +20,7 @@ function WelcomePage() {
       <div className="App">
           <header className="App-header">
               <img src={logo} className="App-logo" alt="logo" />
-              <h1>Flowerish</h1>
+              <h1>Flourish</h1>
               <p>
                   Go to the tasks page or access your account.
               </p>
