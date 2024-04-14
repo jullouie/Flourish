@@ -3,6 +3,7 @@ import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './AnimatedButton.css';
 import './App.css';
 import './Button.css';
+import GroupsPage from './Groups';
 import LoginPage from './LoginPage';
 import NavBar from './NavBar';
 import RegistrationPage from './RegistrationPage';
@@ -178,6 +179,8 @@ function App() {
         <Route path="/tasks" element={<TasksPage />} />
         <Route path="/shop" element={<ShopPage points={points} spendPoints={spendPoints} />} />
         <Route path="/garden" element={<GardenPage showPlant={showPlant} />} />
+        <Route path="/groups" element={<GroupsPage />} />
+
       </Routes>
 
     </Router>
