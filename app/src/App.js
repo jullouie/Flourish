@@ -1,15 +1,15 @@
 import { default as React, useState } from 'react'; // Import useState here
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
 import './App.css';
+import './Button.css';
 import logo from "./Flowerish.png";
 import LoginPage from './LoginPage';
 import Navbar from './Navbar';
 import RegistrationPage from './RegistrationPage';
-import './Button.css';
 import plant1 from "./flowers.png";
 
 
-// WelcomePage component
+// WelcomePage component 1
 function WelcomePage() {
   const [showAccountOptions, setShowAccountOptions] = useState(false);
 
