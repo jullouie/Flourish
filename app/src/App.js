@@ -9,7 +9,9 @@ import NavBar from './NavBar';
 import RegistrationPage from './RegistrationPage';
 import ShopPage from './ShopPage'; // Make sure to import the ShopPage component
 import logo from "./pics/Flowerish.png";
-import plant1 from "./pics/flowers.png";
+
+import plantImages from './imagePaths';
+//import plant1 from "./pics/flowers.png";
 
 
 // WelcomePage component 1
@@ -126,12 +128,15 @@ function TasksPageAcademics({increasePoints, points, animationPoints, unlockMess
 }
 
 // GardenPage component
-function GardenPage({ showPlant }) {
+function GardenPage({ showPlantsCount, showPlants }) {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Garden Page</h1>
-        {showPlant && <img src={plant1} alt="Plant" />}
+        <h1>Here is your garden:</h1>
+        {/* {showPlants.map((showPlant, i) => (showPlant && <img key={i} src={plantImages[i]} alt={`Plant ${i + 1}`} />))} */}
+        {showPlants.map((showPlant, i) => (
+          showPlant && <img key={i} src={plantImages[i]} alt={`Plant ${i + 1}`} />
+        ))}
 
         <p>You are now on the Garden page of our website!</p>
         <Link to="/" className="App-link">
@@ -145,9 +150,15 @@ function GardenPage({ showPlant }) {
 // App component with routing
 function App() {
   const [points, setPoints] = useState(0);
-  const [showPlant, setShowPlant] = useState(false);
+  //const [showPlant, setShowPlant] = useState(false);
   const [animationPoints, setAnimationPoints] = useState(0);
+  const [showPlantsCount, setShowPlantsCount] = useState(1);
   const [unlockMessage, setUnlockMessage] = useState("");
+
+  const [showPlants] = useState([]);
+  for (let i = 0; i < plantImages.length; i++) {
+    showPlants.push(false);
+  }
 
   const increasePoints = (amount) => {
     const newPoints = points + amount;
@@ -160,8 +171,11 @@ function App() {
   const spendPoints = (amount) => {
     if (points >= amount) {
       setPoints(points - amount);
+      setShowPlantsCount(showPlantsCount + 1);
+      console.log("showPlantsCount: ", showPlantsCount);
       if (amount === 50) {
-        setShowPlant(true);
+        showPlants[showPlantsCount - 1] = true;
+        console.log("showPlants: ", showPlants);
       }
     }
   };
@@ -178,7 +192,7 @@ function App() {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/nightOut" element={<TasksPageNightOut />} />
         <Route path="/shop" element={<ShopPage points={points} spendPoints={spendPoints} />} />
-        <Route path="/garden" element={<GardenPage showPlant={showPlant} />} />
+        <Route path="/garden" element={<GardenPage showPlantsCount={showPlantsCount} showPlants={showPlants} />} />
         <Route path="/groups" element={<GroupsPage />} />
 
       </Routes>
