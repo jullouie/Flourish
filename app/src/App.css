@@ -100,3 +100,50 @@
 }
 
 
+/* Styles for GroupsPage */
+.group-page {
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-list {
+  width: 30%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.group-list h2 {
+  margin-bottom: 20px;
+}
+
+.group-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.group-list li {
+  margin-bottom: 10px;
+}
+
+.group-leaderboard {
+  width: 60%;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.group-leaderboard h2 {
+  margin-bottom: 20px;
+}
+
+.group-leaderboard ul {
+  list-style: none;
+  padding: 0;
+}
+
+.group-leaderboard li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}

@@ -1,13 +1,15 @@
 import { default as React, useState } from 'react'; // Import useState here
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
+import './AnimatedButton.css';
 import './App.css';
 import './Button.css';
 import LoginPage from './LoginPage';
 import NavBar from './NavBar';
 import RegistrationPage from './RegistrationPage';
+import ShopPage from './ShopPage'; // Make sure to import the ShopPage component
 import logo from "./pics/Flowerish.png";
 import plant1 from "./pics/flowers.png";
-import './AnimatedButton.css';
+
 
 // WelcomePage component 1
 function WelcomePage() {
@@ -111,9 +113,10 @@ function TasksPageAcademics({increasePoints, points, animationPoints, unlockMess
                 )}
         {unlockMessage !== "" && <div>{unlockMessage}</div>}
         <div className="container">
-          <Link to="/garden" className="App-link">
-            Go To Your Garden
-          </Link>
+        <Link to="/shop" className="App-link">
+        Go to Shop
+        </Link>
+
         </div>
       </header>
     </div>
@@ -148,17 +151,19 @@ function App() {
   const increasePoints = (amount) => {
     const newPoints = points + amount;
     setPoints(newPoints);
-    setUnlockMessage("");
     setAnimationPoints(amount);
     setTimeout(() => setAnimationPoints(0), 1000); // Remove animation after 1 second
+  };
 
-    if (newPoints >= 50) {
-      setShowPlant(true);
-      setPoints(newPoints - 50); // subtract 50 points
-      setUnlockMessage("Congratulations! You unlocked a new plant!");
+
+  const spendPoints = (amount) => {
+    if (points >= amount) {
+      setPoints(points - amount);
+      if (amount === 50) {
+        setShowPlant(true);
+      }
     }
-
-  }
+  };
 
   return (
     <Router>
@@ -171,6 +176,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/tasks" element={<TasksPage />} />
+        <Route path="/shop" element={<ShopPage points={points} spendPoints={spendPoints} />} />
         <Route path="/garden" element={<GardenPage showPlant={showPlant} />} />
       </Routes>
 
