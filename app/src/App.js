@@ -37,7 +37,7 @@ function WelcomePage() {
 
 
 // TasksPage component
-function TasksPage({increasePoints, points, animationPoints}) {
+function TasksPage({increasePoints, points, animationPoints, unlockMessage}) {
   return (
     <div className="App">
       <header className="App-header">
@@ -50,8 +50,9 @@ function TasksPage({increasePoints, points, animationPoints}) {
         </div>
         <div className="points">Points: {points}</div>
         {animationPoints > 0 && (
-                  <div className="points-animation">{animationPoints} points added!</div>
-                )}
+          <div className="points-animation">{animationPoints} points added!</div>
+        )}
+        {unlockMessage !== "" && <div>{unlockMessage}</div>}
         <div className="container">
           <Link to="/garden" className="App-link">
             Go To Your Garden
@@ -64,7 +65,7 @@ function TasksPage({increasePoints, points, animationPoints}) {
 }
 
 // TasksPage component
-function TasksPageAthletics({increasePoints, points, animationPoints}) {
+function TasksPageAthletics({increasePoints, points, animationPoints, unlockMessage}) {
   return (
     <div className="App">
       <header className="App-header">
@@ -78,8 +79,9 @@ function TasksPageAthletics({increasePoints, points, animationPoints}) {
         </div>
         <div className="points">Points: {points}</div>
         {animationPoints > 0 && (
-                  <div className="points-animation">{animationPoints} points added!</div>
-                )}
+          <div className="points-animation">{animationPoints} points added!</div>
+        )}
+        {unlockMessage !== "" && <div>{unlockMessage}</div>}
         <div className="container">
           <Link to="/garden" className="App-link">
             Go To Your Garden
@@ -165,8 +167,8 @@ function App() {
       <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
-        <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
+        <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
+        <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
