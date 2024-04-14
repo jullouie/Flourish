@@ -197,7 +197,6 @@ function App() {
     setTimeout(() => setAnimationPoints(0), 1000); // Remove animation after 1 second
   };
 
-
   const spendPoints = (amount) => {
     if (points >= amount) {
       setPoints(points - amount);
@@ -215,7 +214,7 @@ function App() {
       <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/nightOut" element={<TasksPageNightOut increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
+        <Route path="/tasks" element={<TasksPageNightOut increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/login" element={<LoginPage />} />
