@@ -39,26 +39,29 @@
 }
 
 .navbar-logo {
-  height: 80px;  /* Adjust size as necessary */
+  height: 40px;  /* Adjust size as necessary */
   margin-right: 20px; /* Adds some space between the logo and the navbar links */
+  margin-top: 10px; /* Adds some space between the logo and the navbar links */
 }
 
-.navbar-links {
-  display: flex;
-}
-
-.nav-link {
+.navbar-links a, .navbar-links button {
   padding: 10px 15px;
   text-decoration: none;
   color: #09064a;
   font-weight: bold;
+  font: arial;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block; /* To align with links if needed */
 }
 
-.nav-link:hover {
+.navbar-links a:hover, .navbar-links button:hover {
   background-color: #4CAF50;
   color: white;
   border-radius: 5px;
 }
+
 
 @keyframes App-logo-spin {
   from {

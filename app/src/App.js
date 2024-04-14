@@ -25,7 +25,7 @@ function WelcomePage() {
               </p>
               <div>
                 {/* Link each button to a different page */}
-                <Link to="/tasks" className="button2">Night Out</Link>
+                <Link to="/nightOut" className="button2">Night Out</Link>
                 <Link to="/athletics" className="button2">Athletics</Link>
                 <Link to="/academics" className="button2">Academics</Link>
               </div>
@@ -40,7 +40,7 @@ function WelcomePage() {
 
 
 // TasksPage component
-function TasksPage({increasePoints, points, animationPoints}) {
+function TasksPageNightOut({increasePoints, points, animationPoints}) {
   return (
     <div className="App">
       <header className="App-header">
@@ -171,12 +171,12 @@ function App() {
       <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
-        <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
+        <Route path="/nightOut" element={<TasksPageNightOut increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
         <Route path="/athletics" element={<TasksPageAthletics increasePoints={increasePoints} points={points} animationPoints={animationPoints}/>} />
         <Route path="/academics" element={<TasksPageAcademics increasePoints={increasePoints} points={points} animationPoints={animationPoints} unlockMessage={unlockMessage}/>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/tasks" element={<TasksPage />} />
+        <Route path="/nightOut" element={<TasksPageNightOut />} />
         <Route path="/shop" element={<ShopPage points={points} spendPoints={spendPoints} />} />
         <Route path="/garden" element={<GardenPage showPlant={showPlant} />} />
         <Route path="/groups" element={<GroupsPage />} />
