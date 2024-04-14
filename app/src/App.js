@@ -56,8 +56,8 @@ function TasksPageNightOut({increasePoints, points, animationPoints}) {
                   <div className="points-animation">{animationPoints} points added!</div>
                 )}
         <div className="container">
-          <Link to="/garden" className="App-link">
-            Go To Your Garden
+        <Link to="/shop" className="App-link">
+            Go To the Shop
           </Link>
         </div>
       </header>
@@ -84,8 +84,8 @@ function TasksPageAthletics({increasePoints, points, animationPoints}) {
                   <div className="points-animation">{animationPoints} points added!</div>
                 )}
         <div className="container">
-          <Link to="/garden" className="App-link">
-            Go To Your Garden
+          <Link to="/shop" className="App-link">
+            Go To the Shop
           </Link>
         </div>
       </header>
