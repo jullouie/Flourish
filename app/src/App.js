@@ -4,6 +4,7 @@ import './App.css';
 import logo from "./Flowerish.png";
 import LoginPage from './LoginPage';
 import RegistrationPage from './RegistrationPage';
+import './Button.css';
 
 // WelcomePage component
 function WelcomePage() {
@@ -34,14 +35,16 @@ function NextPage({increasePoints, points}) {
         <h1>Here are your tasks for the day: </h1>
         <p></p>
         <div className="container">
-          <button onClick={() => increasePoints(5)} className="task-buttons">Drink 8 oz of water</button>
-          <button onClick={() => increasePoints(10)} className="task-buttons">Check in on your friends. How much have they drank?</button>
-          <button onClick={() => increasePoints(15)} className="task-buttons">Have a snack!</button>
+          <button onClick={() => increasePoints(5)} className="button">Drink 8 oz of water</button>
+          <button onClick={() => increasePoints(10)} className="button">Check in on your friends. How much have they drank?</button>
+          <button onClick={() => increasePoints(15)} className="button">Have a snack!</button>
         </div>
         <div className="points">Points: {points}</div>
-        <Link to="/garden" className="App-link">
-          Go To Your Garden
-        </Link>
+        <div className="container">
+          <Link to="/garden" className="App-link">
+            Go To Your Garden
+          </Link>
+        </div>
       </header>
     </div>
   );

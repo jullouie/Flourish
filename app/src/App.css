@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
+  margin-bottom: 5px;
 }
 
 .App-link {
@@ -59,6 +60,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 .points {
@@ -71,11 +73,14 @@
 }
 
 .task-buttons {
-  margin-top: 50px;
+  margin-top: 10px;
   background-color: lightblue;
   padding: 10px;
+  margin-bottom: 50 px;
 }
 
 .task-buttons button {
   margin-right: 10px;
+  margin-bottom: 50px;
+  margin-top: 5px;
 }
