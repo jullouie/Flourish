@@ -2,10 +2,11 @@ import { default as React, useState } from 'react'; // Import useState here
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
 import './App.css';
 import logo from "./Flowerish.png";
-import plant1 from "./flowers.png";
 import LoginPage from './LoginPage';
 import Navbar from './Navbar';
 import RegistrationPage from './RegistrationPage';
+import plant1 from "./flowers.png";
+
 
 // WelcomePage component
 function WelcomePage() {
