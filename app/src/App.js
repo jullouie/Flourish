@@ -1,22 +1,17 @@
 import { default as React, useState } from 'react'; // Import useState here
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'; // Import Link here
 import './App.css';
-import logo from "./Flowerish.png";
-import LoginPage from './LoginPage';
-import Navbar from './Navbar';
-import RegistrationPage from './RegistrationPage';
 import './Button.css';
+import LoginPage from './LoginPage';
+import NavBar from './NavBar';
+import RegistrationPage from './RegistrationPage';
+import logo from "./pics/Flowerish.png";
+import plant1 from "./pics/flowers.png";
 import plant1 from "./flowers.png";
 import './AnimatedButton.css';
 
-
-// WelcomePage component
+// WelcomePage component 1
 function WelcomePage() {
-  const [showAccountOptions, setShowAccountOptions] = useState(false);
-
-  const toggleAccountOptions = () => {
-      setShowAccountOptions(!showAccountOptions);
-  };
 
   return (
       <div className="App">
@@ -148,7 +143,7 @@ function App() {
 
   return (
     <Router>
-      <div><Navbar />  {/* Navbar included here */}</div>
+      <div><NavBar />  {/* Navbar included here */}</div>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/tasks" element={<TasksPage increasePoints={increasePoints} points={points} />} />
